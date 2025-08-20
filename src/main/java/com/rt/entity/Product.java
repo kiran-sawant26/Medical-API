@@ -1,15 +1,18 @@
 package com.rt.entity;
 
+import org.hibernate.annotations.ManyToAny;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
+
 @Table(name="product")
 public class Product {
      
@@ -17,8 +20,12 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-    private String brand;
-    private String category;
+	@ManyToOne
+	@JoinColumn(name = "brandId")
+    private Brand brand;
+	@ManyToOne
+	@JoinColumn(name = "categoryId")
+    private Category category;
     private String batchNo;
     private String mfgDate;       
     private String expDate;
@@ -27,6 +34,7 @@ public class Product {
     private String quantity;
     private String gst;
     private String rackNo;
+    private boolean isDeleted=false;
     public Product() {
 		// TODO Auto-generated constructor stub
 	}
@@ -42,16 +50,16 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getBrand() {
+	public Brand getBrand() {
 		return brand;
 	}
-	public void setBrand(String brand) {
+	public void setBrand(Brand brand) {
 		this.brand = brand;
 	}
-	public String getCategory() {
+	public Category getCategory() {
 		return category;
 	}
-	public void setCategory(String category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 	public String getBatchNo() {
@@ -102,8 +110,15 @@ public class Product {
 	public void setRackNo(String rackNo) {
 		this.rackNo = rackNo;
 	}
-	public Product(int id, String name, String brand, String category, String batchNo, String mfgDate, String expDate,
-			String purchaseRate, String sellingRate, String quantity, String gst, String rackNo) {
+	
+	public boolean isDeleted() {
+		return isDeleted;
+	}
+	public void setDeleted(boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+	public Product(int id, String name, Brand brand, Category category, String batchNo, String mfgDate, String expDate,
+			String purchaseRate, String sellingRate, String quantity, String gst, String rackNo, boolean isDeleted) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -117,6 +132,7 @@ public class Product {
 		this.quantity = quantity;
 		this.gst = gst;
 		this.rackNo = rackNo;
+		this.isDeleted = isDeleted;
 	}
-    
+
 }

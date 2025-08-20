@@ -5,11 +5,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+public class SupplierReqDTO {
 
-public class CategoryReqDTO {
-    
 	private int id;
 	private String name;
+	private String contact;
+	private String email;
+	private String address;
 }

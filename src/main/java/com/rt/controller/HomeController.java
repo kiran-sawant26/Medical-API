@@ -8,8 +8,10 @@ public class HomeController {
 	
 	@PostMapping("/hello")
 	public String hello() {
-		System.out.println("restControoler");
+	
 		return "hello java";
 	}
 
+	
+	
 }

@@ -3,16 +3,13 @@ package com.rt.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.rt.entity.Brand;
 import com.rt.entity.Category;
 
 @Repository
-public interface CategoryRepository extends JpaRepository<Category, Integer> {
+public interface BrandRepository extends JpaRepository<Brand, Integer>{
 
-	Category findById(int id);
+	Brand findById(int id);
 
-	Category findByName(String category);
-	
-
-	
-
+	Brand findByBrandName(String brand);
 }

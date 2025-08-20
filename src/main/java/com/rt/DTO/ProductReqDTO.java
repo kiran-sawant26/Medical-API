@@ -11,8 +11,8 @@ public class ProductReqDTO {
 
 	private int id;
     private String name;
-    private String brand;
-    private String category;
+    private int brand;
+    private int category;
     private String batchNo;
     private String mfgDate;       
     private String expDate;

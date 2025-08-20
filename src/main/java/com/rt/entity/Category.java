@@ -44,6 +44,11 @@ public class Category {
 		this.name = name;
 	}
 
+	public String getCategoryName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 }

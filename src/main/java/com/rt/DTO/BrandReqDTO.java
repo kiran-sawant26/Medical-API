@@ -7,9 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+public class BrandReqDTO {
 
-public class CategoryReqDTO {
-    
 	private int id;
-	private String name;
+	private String brandName;
+	
+	
+	
 }

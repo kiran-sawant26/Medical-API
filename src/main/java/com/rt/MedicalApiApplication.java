@@ -1,3 +1,4 @@
+
 package com.rt;
 
 import org.springframework.boot.SpringApplication;
@@ -10,6 +11,8 @@ public class MedicalApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MedicalApiApplication.class, args);
+		
+		                      
 	}
 	
 
